@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		var color = ["white", "yellow", "aqua", "purple"];
+		// color의 인덱스에 각각의 색을 넣는다.
+		var i = 0;
+		function changeColor() {
+			i++;
+			if(i >= color.length){
+				i = 0;
+			}
+		// changeColor : color[i]의 i값을 하나씩 올려주어 color의 인덱스들을
+		// 번갈아가며 보여주며, if문을 이용하여 반복되게 한다.
+		
+			var bodyTag = document.getElementById("theBody");
+			// bodyTag 변수에 theBody라는 아이디 값을 준다.
+			bodyTag.style.backgroundColor = color[i];
+			// bodyTag 변수에 배경색을 color[i]에 있는 값으로 변경한다.
+		}
+		</script>	
+	</head>
+	<body id="theBody">
+		<button onclick="changeColor();">배경색 바꾸기</button>
+	</body>
+</html>
