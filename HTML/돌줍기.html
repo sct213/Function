@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		function doAction() {
+			var remain = 20;
+			var min = 1;
+			var max = 3;
+			alert("게임을 시작합니다!\n 남은 돌의 수 : " + remain);
+			
+			while(true) {
+				var n = window.propt("남은 돌의 수: " + remain + "\n 몇 개를 줍겠습니까? : (" + min + "~" + max + ")");
+				n = n * 1;
+				
+				if(n < min) n = min;
+				if(n > max) n = max;
+				remain = remain - n;
+				if(remain < 0) remain = 0;
+				alert("당신은" + n + "개 주었습니다. \n남은 돌의 수 : " + remain);
+				
+				if(remain == 0) {
+					alert("유감입니다. 당신이 졌습니다");
+					break;
+				}
+				var n2 = (remain - 1) % (min + max);
+				if(n2 < min) n2 = min;
+				if(n2 > max) n2 = max;
+				remain = remain - n2;
+				if(remain < 0) remain = 0;
+				alert("나는" + n2 + "개 주었습니다 \n 남은 돌의 수 : " + remain);
+				if(remain == 0){
+					alert("축하합니다. 당신이 이겼습니다");
+					break;
+				}
+			}
+		}
+	</script>
+	<h1>돌 줍기 게임</h1>
+	<input type="button" onclick="doAction();" value="시작!">
+	</body>
+</html>
